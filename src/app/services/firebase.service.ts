@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import * as firebase from 'firebase';
 import 'rxjs/add/operator/map';
 import {Users} from '../Users';
 import {Events} from '../Events';
@@ -12,10 +13,11 @@ export class FirebaseService{
      events: FirebaseListObservable<Events[]>;
      categories: FirebaseListObservable<Categories[]>;
      event: FirebaseObjectObservable<Events[]>;
+     folder: any;
 
     checkin: any;
     constructor(private _af: AngularFire){
-    
+      this.folder = 'eventimages';
     }
     getUsers(user:string = null){
         if(user != null){
@@ -55,8 +57,20 @@ export class FirebaseService{
     this.event = this._af.database.object('/events/'+id) as FirebaseObjectObservable<Events>
     return this.event;
   }
+  
 addEvent(theevent){
-        return this.events.push(theevent);
+       // Create root ref
+    let storageRef = firebase.storage().ref();
+    for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+      let path = `/${this.folder}/${selectedFile.name}`;
+      let iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        theevent.image = selectedFile.name;
+     theevent.path = encodeURIComponent(path);
+  return this.events.push(theevent);
+      });
+    }
+       
     }
 checkIn(eid,uid){
      const list = this._af.database.list('/events/'+eid+'/checkins');
