@@ -16,7 +16,7 @@
   	<div id="fh5co-hotel-section">
 		<div class="container">
 			<div class="row">
-
+    <flash-messages></flash-messages>
        
   <a [routerLink]="['/events']">Go Back</a>
   <br>
@@ -27,14 +27,15 @@
     </div>-->
     <div class="col-md-8">
       <ul class="list-group">
+         <li class="list-group-item"><img src="https://firebasestorage.googleapis.com/v0/b/ding-web.appspot.com/o/eventimages%2F{{event.image}}?alt=media" class="img-responsive"></li>
         <li class="list-group-item">Description: {{event.description}}</li>
         <li class="list-group-item">Location: {{event.location}}</li>
-        <li class="list-group-item">Date: {{event.data}}</li>
+        <li class="list-group-item">Date: {{event.date}}</li>
         <li class="list-group-item">Category: {{event.category}}</li>
       </ul>
     </div>
   <div class="col-md-4">
-    <a class="btn btn-default" href="#">Edit</a>
+   <a class="btn btn-default" [routerLink]="['/edit-event/'+event.$key]">Edit</a>
     <a class="btn btn-danger" href="#">Delete</a>
   <button *ngIf="(af.auth | async)" class="btn btn-primary"  (click)="addCheckin()">Check-in</button> 
    <a  *ngIf="!(af.auth | async)" class="btn btn-default" routerLink="/login" >Login to Check-in</a>

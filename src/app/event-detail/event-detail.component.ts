@@ -2,23 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 import {FirebaseService} from '../services/firebase.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import {FlashMessagesService} from 'angular2-flash-messages';
+import {Events} from '../Events';
 
 
 @Component({
   selector: 'app-event-detail',
   templateUrl: './event-detail.component.html',
-  styleUrls: ['./event-detail.component.scss']
+  styleUrls: ['./event-detail.component.scss'],
+    providers: [FirebaseService,FlashMessagesService]
 })
 export class EventDetailComponent implements OnInit {
 
    id:any;
-   event: any;
+   event: Events[];
 
   constructor(
     public af: AngularFire,
     private _firebaseService: FirebaseService,
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+     public flashMessage:FlashMessagesService
   ) { 
  
 
@@ -48,8 +52,12 @@ addCheckin(){
        // console.log(this.id);
         this._firebaseService.checkIn(this.id, auth.uid);
 
+    
       }
     });
+  this.flashMessage.show('Event successfully created!',
+    {cssClass: 'alert-success', timeout: 3000});
+
 
 }
   

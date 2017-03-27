@@ -7,6 +7,7 @@ import {FirebaseService} from '../services/firebase.service';
 import {Events} from '../Events';
 import {Categories} from '../Categories';
 import {FlashMessagesService} from 'angular2-flash-messages';
+declare var jQuery:any;
 
 @Component({
   selector: 'app-add-event',
@@ -25,6 +26,7 @@ export class AddEventComponent implements OnInit {
   category:any;
   description:any;
   image:any;
+  jQuery:any;
 
   constructor(
     private router: Router, 
@@ -36,7 +38,7 @@ export class AddEventComponent implements OnInit {
 
 
   ngOnInit() {
-
+  jQuery('#date-start, #date-end').datepicker();
         this._firebaseService.getEvents().subscribe(events => {
       this.events = events;
    });
@@ -61,7 +63,7 @@ export class AddEventComponent implements OnInit {
     this._firebaseService.addEvent(theevent);
   this.flashMessage.show('Event successfully created!',
     {cssClass: 'alert-success', timeout: 3000});
-   //this.router.navigate(['/']);
+   //this.router.navigate(['/events']);
   }
 
 }

@@ -5,8 +5,8 @@
 			<div class="row">
 				<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
 					<div class="fh5co-intro fh5co-table-cell">
-						<h1 class="text-center">Create An Event</h1>
-						<p>Kindly tell us about your event.</p>
+						<h1 class="text-center">Edit Event</h1>
+						<p>Edit event section...</p>
 					</div>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 							</div>
 						</div>
                         <div class="col-md-6">
-                             <div class="form-group">
+                           <!--  <div class="form-group">
                             <select class="form-control" type="text" [(ngModel)]="category" name="category" >
                            <option value="" selected disabled>Event Category</option>
                    <option *ngFor="let category of categories" value="{{category.name}}">{{category.name}}</option>
@@ -47,7 +47,8 @@
 
 
 
-                        </div>    </div>
+                        </div>  -->
+                          </div>
                         <div class="col-md-6">
 	                <input type="text" [(ngModel)]="date" name="date" id="date-end" class="form-control" placeholder="Date" >
 
@@ -58,13 +59,13 @@
 								<textarea name="" [(ngModel)]="description" name="description" class="form-control" id="" cols="30" rows="5" placeholder="Event Description..."></textarea>
 							</div>
 						</div>
-                                <div class="col-md-12">  
+                               <!-- <div class="col-md-12">  
                             <div class="form-group">
                         <input id="image" name="image" [(ngModel)]="image" type="file" >
-                    </div></div>
+                    </div></div>-->
 						<div class="col-md-12">
 			
-								<input type="submit" value="Create Event" class="btn btn-success">
+								<input type="submit" value="Update Event" class="btn btn-success">
                                 
 					
                         

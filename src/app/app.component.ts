@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { moveIn, fallIn } from './router.animations';
 import {Users} from './Users';
 import {Events} from './Events';
-
+//declare var jQuery:any;
 
 @Component({
   selector: 'app-root',
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit{
   }
 
 ngOnInit(){
+    // jQuery('#date-start, #date-end').datepicker();
     this._firebaseService.getUsers().subscribe(users => {
       this.users = users;
      //  console.log(this.users);
@@ -38,6 +39,7 @@ ngOnInit(){
 
 
 }
+
 
 
   

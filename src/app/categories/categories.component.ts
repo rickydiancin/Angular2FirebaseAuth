@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 import {Categories} from '../Categories';
 import {FlashMessagesService} from 'angular2-flash-messages';
-
+declare var jQuery:any;
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -18,6 +18,7 @@ export class CategoriesComponent implements OnInit {
   constructor(private _firebaseService:FirebaseService, public flashMessage:FlashMessagesService) { }
 
   ngOnInit() {
+    jQuery('#date-start, #date-end').datepicker();
        this._firebaseService.getCategories().subscribe(categories => {
        console.log(categories);
       this.categories = categories;

@@ -21,17 +21,17 @@
 
 <div class="col-md-4" *ngFor="let event of events">
 					<div class="hotel-content">
-						<div class="hotel-grid" [ngStyle]="{'background-image': 'url(' + event.path + ')'}">
+						<div class="hotel-grid" [ngStyle]="{'background-image': 'url(https://firebasestorage.googleapis.com/v0/b/ding-web.appspot.com/o/eventimages%2F' + event.image + '?alt=media)'}">
 							<div class="price"><small>Open Registration</small><span>FREE</span></div>
-							<a class="book-now text-center" href="#"><i class="ti-calendar"></i> Check-in</a>
+							<a class="book-now text-center" [routerLink]="['/event/'+event.$key]"><i class="ti-calendar"></i> Check-in</a>
 						</div>
 						<div class="desc">
 							<h3><a [routerLink]="['/event/'+event.$key]">{{event.eventname}}</a></h3>
 							<p>{{event.description}}</p>
 							<small>{{event.location}}</small><br>
 							<small>{{event.date}}</small>
-							<small>{{event.path}}</small>
-							<img src="https://firebasestorage.googleapis.com/v0/b/ding-web.appspot.com/o/eventimages%2F{{event.image}}?alt=media"/>
+				
+				
 						</div>
 					</div>
 				</div>

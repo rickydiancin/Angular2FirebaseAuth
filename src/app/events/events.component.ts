@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../services/firebase.service';
 import {Events} from '../Events';
+import {Categories} from '../Categories';
 
 
 
@@ -12,6 +13,7 @@ import {Events} from '../Events';
 export class EventsComponent implements OnInit {
 
   events:Events[];
+  categories: Categories[];
   imageUrl:any;
   event: any;
 
@@ -25,18 +27,10 @@ export class EventsComponent implements OnInit {
    this._firebaseService.getEvents().subscribe(events => {
      console.log(events);
       this.events = events;
-/*
-    let storageRef = firebase.storage().ref();
-      let spaceRef = storageRef.child(this.event.path);
-      storageRef.child(this.event.path).getDownloadURL().then((url) => {
-        // Set image url
-        this.event.path= url;
-      }).catch((error) => {
-        console.log(error);
-      });
-
-*/
-
+    });
+       this._firebaseService.getCategories().subscribe(categories => {
+     console.log(categories);
+      this.categories = categories;
     });
 
   }

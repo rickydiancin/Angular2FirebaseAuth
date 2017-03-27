@@ -1,0 +1,99 @@
+
+#profile{
+	background: url(assets/images/bg-sm-01.jpg);
+	background-repeat:no-repeat;
+	background-size: cover;
+     color: #fff;
+     .tools {
+        padding-top: 2em;
+             a{
+           color: #343740 !important;
+          
+               padding-right: .75em;
+       }
+     }
+    
+       .number {
+    font-size: 1.5em;
+}
+	}
+#thetabs{
+    color: #343740;
+}    
+/*arrow divs*/
+.uparrowdiv, .downarrowdiv, .leftarrowdiv, .rightarrowdiv{
+    min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+    background: rgb(75, 77, 92);
+    color:white;
+    position:relative;
+    -moz-border-radius:5px; /*add some nice CSS3 round corners*/
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    margin-bottom:2em;
+}
+.uparrowdiv-white, .downarrowdiv-white, .leftarrowdiv-white, .rightarrowdiv-white {
+    min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+    background: #fff;
+    position:relative;
+    -moz-border-radius:5px; /*add some nice CSS3 round corners*/
+    -webkit-border-radius:5px;
+    -radius:5px;
+}
+.uparrowdiv:after{ /*arrow added to uparrowdiv DIV*/
+    content:'';
+    display:block;
+    position:absolute;
+    top:-20px; /*should be set to -border-width x 2 */
+    left:30px;
+    width:0;
+    height:0;
+    border-color: transparent transparent black transparent; /*border color should be same as div div background color*/
+    border-style: solid;
+    border-width: 10px;
+}
+
+.downarrowdiv:after{ /*arrow added to downarrowdiv DIV*/
+    content:'';
+    display:block;
+    position:absolute;
+    top:100%; /*should be set to 100% */
+    left:30px;
+    width:0;
+    height:0;
+    border-color: rgb(75, 77, 92) transparent transparent transparent; /*border color should be same as div div background color*/
+    border-style: solid;
+    border-width: 10px;
+}
+
+.leftarrowdiv-white:after, .leftarrowdiv:after{ /*arrow added to leftarrowdiv DIV*/
+    content:'';
+    display:block;
+    position:absolute;
+    top:40%;
+    left:-20px; /*should be set to -border-width x 2 */
+    width:0;
+    height:0;
+    border-color: transparent black transparent transparent; /*border color should be same as div div background color*/
+    border-style: solid;
+    border-width: 10px;
+}
+.leftarrowdiv-white:after {
+    border-color: transparent white transparent transparent!important; /*border color should be same as div div background color*/
+}
+.rightarrowdiv:after{ /*arrow added to rightarrowdiv DIV*/
+    content:'';
+    display:block;
+    position:absolute;
+    top:10px;
+    left:100%; /*should be set to 100% */
+    width:0;
+    height:0;
+    border-color: transparent transparent transparent black; /*border color should be same as div div background color*/
+    border-style: solid;
+    border-width: 10px;
+}
+
+.avatar-lg .img-circle {
+    box-shadow: 0px 0px 0px 8px #94d9d8;
+    margin-right: 0em;
+}
