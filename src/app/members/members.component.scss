@@ -1,4 +1,6 @@
-
+#fh5co-contact-section{
+background: #f7f7f7;
+}
 #profile{
 	background: url(assets/images/bg-sm-01.jpg);
 	background-repeat:no-repeat;
@@ -18,6 +20,7 @@
 }
 	}
 #thetabs{
+    margin-top: 1em;
     color: #343740;
 }    
 /*arrow divs*/
@@ -96,4 +99,22 @@
 .avatar-lg .img-circle {
     box-shadow: 0px 0px 0px 8px #94d9d8;
     margin-right: 0em;
+}
+
+/*form controls*/
+.form-control		 {margin-bottom:1em;border:0!important;}
+.panel .form-control {background:#fff!important;}
+.panel .form-control {
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    box-shadow: none;
+    font-size:110%;
+    padding-bottom:.4em!important;
+    margin-bottom:0em!important;
+}
+.panel-footer ul{
+margin-bottom: 0px;
 }

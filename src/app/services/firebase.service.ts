@@ -61,13 +61,16 @@ export class FirebaseService{
 addEvent(theevent){
        // Create root ref
     let storageRef = firebase.storage().ref();
+
     for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
       let path = `/${this.folder}/${selectedFile.name}`;
       let iRef = storageRef.child(path);
       iRef.put(selectedFile).then((snapshot) => {
         theevent.image = selectedFile.name;
      theevent.path = encodeURIComponent(path);
+
   return this.events.push(theevent);
+  
       });
     }
        
